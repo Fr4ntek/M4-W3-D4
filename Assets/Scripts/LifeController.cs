@@ -19,7 +19,7 @@ public class LifeController : MonoBehaviour
 
     void Start()
     {
-        onLifeChanged.Invoke(_hp, _maxHp); // aggiorna subito la UI
+        onLifeChanged?.Invoke(_hp, _maxHp); // aggiorna subito la UI
     }
 
     public int GetHp() => _hp;
@@ -40,12 +40,12 @@ public class LifeController : MonoBehaviour
     {
         AddHp(-damage);
         Debug.Log($"[LifeController] Danno preso: {damage}, HP attuali: {_hp}");
-        onLifeChanged.Invoke(_hp, _maxHp);
+        onLifeChanged?.Invoke(_hp, _maxHp);
     }
 
     public void Die()
     {
-        Debug.Log("[LifeController] Giocatore morto.");
+        Debug.Log("[LifeController] GameObject distrutto.");
         Destroy(gameObject);
     }
 }
